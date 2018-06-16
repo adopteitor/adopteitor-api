@@ -5,19 +5,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ContractsSchema = new Schema({
   _id: {
-    type: String,
+    type: ObjectId,
     required: true
   },
   animalId: {
-    type: String,
+    type: ObjectId,
     required: true
   },
   humanId: {
-    type: String,
+    type: ObjectId,
     required: true
   },
   timeStamp: {
-    type: String,
+    type: Date,
     required: true
   },
   contract: {

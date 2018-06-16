@@ -5,11 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ContractsSchema = new Schema({
   _id: {
-    type: String,
-    required: true
-  },
-  animalId: {
-    type: String,
+    type: ObjectId,
     required: true
   },
   name: {
@@ -21,7 +17,7 @@ const ContractsSchema = new Schema({
     required: true
   },
   birthDay: {
-    type: String,
+    type: Date,
     required: true
   },
   phone: {

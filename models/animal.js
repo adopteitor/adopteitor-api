@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const AnimalSchema = new Schema({
   _id: {
-    type: String,
+    type: ObjectId,
     required: true
   },
   stage: {
@@ -17,7 +17,7 @@ const AnimalSchema = new Schema({
     required: true
   },
   birthday: {
-    type: String,
+    type: Date,
     required: true
   },
   description: {
@@ -25,7 +25,7 @@ const AnimalSchema = new Schema({
     required: true
   },
   ingressDate: {
-    type: String,
+    type: Date,
     required: true
   }
 });
