@@ -12,6 +12,6 @@ Backend for adopteitor using FeathersJS.
 
 ## Resources:
   - Animals:
-  - Persons:
+  - Humans:
   - Contracts:
   - Donations:
