@@ -1,3 +1,5 @@
+const AnimalModel = require('../models/animals');
+
 class Animals {
   constructor() {
     this.animals = [];
@@ -19,19 +21,19 @@ class Animals {
     return animal;
   }
 
-
   async create(data, params) {
-    const Model = require('../models/animal');
-    let Animaldata = {
-      id: "id",
-      stage: "meme",
-      name: "name",
-      birthday: "birthday",
-      description: "description",
-      ingress_date: "ingress_date"
+    const AnimalData = {
+      stage: data.stage,
+      name: data.name,
+      dateOfBirth: data.dateOfBirth,
+      description: data.description,
+      entryDate: data.entryDate
     };
-    const animal = new Model(Animaldata);
-    this.animals.push(animal);
+
+    const animal = new AnimalModel(AnimalData);
+    
+    this.animals.push(animal); // TODO persist to DB here 
+
     return this.animal;
   }
 

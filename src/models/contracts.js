@@ -2,10 +2,12 @@
 
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema,
+      ObjectId = Schema.ObjectId;
+
 const ContractsSchema = new Schema({
   _id: {
-    type: ObjectId,
+    type: Number,
     required: true
   },
   animalId: {
@@ -16,7 +18,7 @@ const ContractsSchema = new Schema({
     type: ObjectId,
     required: true
   },
-  timeStamp: {
+  createdAt: {
     type: Date,
     required: true
   },

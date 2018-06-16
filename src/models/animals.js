@@ -3,36 +3,33 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const ContractsSchema = new Schema({
+const AnimalsSchema = new Schema({
   _id: {
-    type: ObjectId,
+    type: Number,
+    required: true
+  },
+  stage: {
+    type: String,
     required: true
   },
   name: {
     type: String,
     required: true
   },
-  lastName: {
-    type: String,
-    required: true
-  },
-  birthDay: {
+  dateOfBirth: {
     type: Date,
     required: true
   },
-  phone: {
+  description: {
     type: String,
     required: true
   },
-  email: {
-    type: String,
-    required: true
-  },
-  city: {
-    type: String,
+  entryDate: {
+    type: Date,
     required: true
   }
 });
-const Model = mongoose.model('Contracts', ContractsSchema);
+
+const Model = mongoose.model('Animals', AnimalsSchema);
 
 module.exports = Model;

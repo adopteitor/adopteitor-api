@@ -3,32 +3,40 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const AnimalSchema = new Schema({
+const HumansSchema = new Schema({
   _id: {
-    type: ObjectId,
+    type: Number,
     required: true
   },
-  stage: {
+  firstName: {
     type: String,
     required: true
   },
-  name: {
+  lastName: {
     type: String,
     required: true
   },
-  birthday: {
+  dateOfBirth: {
     type: Date,
     required: true
   },
-  description: {
+  phone: {
     type: String,
     required: true
   },
-  ingressDate: {
+  email: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  createdAt: {
     type: Date,
     required: true
   }
 });
-const Model = mongoose.model('Animal', AnimalSchema);
+const Model = mongoose.model('Humans', HumansSchema);
 
 module.exports = Model;
