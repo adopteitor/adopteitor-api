@@ -2,15 +2,38 @@
 
 const feathers = require('@feathersjs/feathers');
 const express = require('@feathersjs/express');
-const Animals = require('./services/animals.js');
 const app = express(feathers());
+const mongoose = require('mongoose');
+const service = require('feathers-mongoose');
+const animalsModel = require('./models/animals.js');
 
-app.configure(express.rest());
+mongoose.Promise = global.Promise;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('animals', new Animals());
-app.use(express.errorHandler());
+app
+  .configure(express.rest())
+  .use(express.json())
+  .use(express.urlencoded({ extended: true }))
+  .use('/animals', service({
+    Model: animalsModel,
+    lean: true, // set to false if you want Mongoose documents returned
+    paginate: {
+      default: 2,
+      max: 4
+    }
+  }))
+  .use(express.errorHandler());
+
+
+mongoose
+  .connect('mongodb://localhost:27017', {
+    dbName: "adopteitor"
+  })
+  .then((res) => {
+    console.log("[mongoose.connected]");
+  })
+  .catch((err) => {
+    console.log("[mongoose.connection failed]", err);
+  });
 
 const server = app.listen(3030);
 

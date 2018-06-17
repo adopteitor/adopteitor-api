@@ -1,9 +1,8 @@
 'use strict';
 
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-const AnimalSchema = new Schema({
+const AnimalsSchema = new Schema({
   stage: {
     type: String,
     required: true
