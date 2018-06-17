@@ -1,7 +1,30 @@
-MongoDB:
-  image: sameersbn/mongodb:latest
-  ports:
-    - "27017:27017"
-  volumes:
-    - /srv/docker/mongodb:/var/lib/mongodb
-  restart: always
+version: '3'
+
+services:
+
+  adopteitor_api:
+    container_name: adopteitor_api
+    image: adopteitor-api
+    build: .
+    ports:
+      - "3030:3030"
+    volumes:
+      - .:/var/adopteitor-api
+    networks:
+      - net
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: adopteitor_mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/var/data
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
