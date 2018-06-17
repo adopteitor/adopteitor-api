@@ -23,16 +23,15 @@ app
   }))
   .use(express.errorHandler());
 
-
 mongoose
   .connect('mongodb://localhost:27017', {
-    dbName: "adopteitor"
+    dbName: 'adopteitor'
   })
-  .then((res) => {
-    console.log("[mongoose.connected]");
+  .then(() => {
+    console.log('[mongoose.connected]');
   })
   .catch((err) => {
-    console.log("[mongoose.connection failed]", err);
+    console.log('[mongoose.connection failed]', err);
   });
 
 const server = app.listen(3030);
