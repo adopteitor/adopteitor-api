@@ -6,6 +6,18 @@ const app = express(feathers());
 const mongoose = require('mongoose');
 const service = require('feathers-mongoose');
 const animalsModel = require('./models/animals.js');
+const humansModel = require('./models/humans.js');
+const contractsModel = require('./models/contracts.js');
+function getServiceConfigFor(model) {
+  return {
+    Model: model,
+    lean: true, // set to false if you want Mongoose documents returned
+    paginate: {
+      default: 2,
+      max: 4
+    }
+  };
+};
 
 mongoose.Promise = global.Promise;
 
@@ -13,14 +25,9 @@ app
   .configure(express.rest())
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .use('/animals', service({
-    Model: animalsModel,
-    lean: true, // set to false if you want Mongoose documents returned
-    paginate: {
-      default: 2,
-      max: 4
-    }
-  }))
+  .use('/animals', service(getServiceConfigFor(animalsModel)))
+  .use('/humans', service(getServiceConfigFor(humansModel)))
+  .use('/contracts', service(getServiceConfigFor(contractsModel)))
   .use(express.errorHandler());
 
 mongoose
