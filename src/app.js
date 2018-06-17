@@ -36,4 +36,7 @@ mongoose
 
 const server = app.listen(3030);
 
-server.on('listening', () => console.log('Adopteitor Server started at http://localhost:3030'));
+server.on('listening', () => {
+  process.stdout.write("\u001b[2J\u001b[0;0H"); // This is for clearing the console.
+  console.log('Adopteitor Server started at http://localhost:3030')
+});
