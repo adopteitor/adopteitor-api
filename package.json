@@ -2,16 +2,17 @@
   "name": "adopteitor-feathers",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
+  "repository": "https://github.com/adopteitor/adopteitor-api",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "serve": "http-server public/",
     "lint": "eslint *.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "adopteitor",
   "license": "ISC",
   "dependencies": {
     "@feathersjs/express": "^1.2.3",

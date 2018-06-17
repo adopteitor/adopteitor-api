@@ -2,7 +2,7 @@
 
 const feathers = require('@feathersjs/feathers');
 const express = require('@feathersjs/express');
-const Animals = require('./endpoints/animals.js');
+const Animals = require('./services/animals.js');
 const app = express(feathers());
 const mongoose = require('mongoose');
 const service = require('feathers-mongoose');
