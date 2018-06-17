@@ -38,5 +38,29 @@ const server = app.listen(3030);
 
 server.on('listening', () => {
   process.stdout.write("\u001b[2J\u001b[0;0H"); // This is for clearing the console.
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log('                                                           .db--D,');
+  console.log('                                                           db( o\\o');
+  console.log("                                               _____       /  ,_ \\ ");
+  console.log("                                        ,,---~~     ~~~~--;   / ~-,$")
+  console.log("                                       /    __               /")
+  console.log("                                      /    /  \\             /")
+  console.log("                                     (    ;    \\,           )")
+  console.log("    github.com/adopteitor             |  |       '--__;--   /")
+  console.log("                                       ) )               \\  |")
+  console.log("                                       / /                |:|")
+  console.log("                                      / /                 |;|")
+  console.log("                                     (||                  |:|")
+  console.log("                                     |,\\                  |:!")
+  console.log("                                  ___.\\LLe.__ _________  .\\Le.____")
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
   console.log('Adopteitor Server started at http://localhost:3030')
 });
