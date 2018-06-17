@@ -4,11 +4,6 @@ const feathers = require('@feathersjs/feathers');
 const express = require('@feathersjs/express');
 const Animals = require('./services/animals.js');
 const app = express(feathers());
-const mongoose = require('mongoose');
-const service = require('feathers-mongoose');
-
-mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://localhost:27017/feathers');
 
 app.configure(express.rest());
 

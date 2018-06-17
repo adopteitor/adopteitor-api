@@ -1,4 +1,6 @@
 const AnimalModel = require('../models/animals');
+const mongoose = require('mongoose');
+const service = require('feathers-mongoose');
 
 class Animals {
   constructor() {
@@ -22,18 +24,35 @@ class Animals {
   }
 
   async create(data, params) {
-    const AnimalData = {
+    const Model = require('../models/animal');
+    let AnimalData = {
       stage: data.stage,
       name: data.name,
       dateOfBirth: data.dateOfBirth,
       description: data.description,
       entryDate: data.entryDate
     };
-
     const animal = new AnimalModel(AnimalData);
-    
-    this.animals.push(animal); // TODO persist to DB here 
 
+    this.animals.push(animal);
+    mongoose.Promise = global.Promise;
+    mongoose
+      .connect('mongodb://localhost:27017', {
+        dbName: "adopteitor"
+      })
+        .then((res) => {
+          animal.save((err) => {
+            console.log("[animal.save] err", err);
+          })
+          console.log("[RES]");
+          console.log(res);
+          console.log("[RES]");
+        })
+        .catch((err) => {
+          console.log("[ERR]");
+          console.log(err);
+          console.log("[ERR]");
+        });
     return this.animal;
   }
 

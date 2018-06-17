@@ -3,11 +3,7 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const AnimalsSchema = new Schema({
-  _id: {
-    type: Number,
-    required: true
-  },
+const AnimalSchema = new Schema({
   stage: {
     type: String,
     required: true
