@@ -22,7 +22,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./data/db:/data
+      - /data/db:/data
     networks:
       - net
 
