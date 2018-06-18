@@ -1,8 +1,9 @@
 version: '3'
 
 services:
-
   adopteitor_api:
+    env_file:
+      - .env
     container_name: adopteitor_api
     image: adopteitor-api
     build: .
@@ -21,7 +22,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./data:/var/data
+      - ./data/db:/data
     networks:
       - net
 
