@@ -24,7 +24,7 @@ app
   .use(express.errorHandler());
 
 mongoose
-  .connect('mongodb://localhost:27017', {
+  .connect('mongodb://adopteitor_mongo:27017', {
     dbName: 'adopteitor'
   })
   .then(() => {

@@ -12,11 +12,23 @@ Backend for adopteitor using FeathersJS.
   - Models: http://mongoosejs.com
 
 
-## Start:
-```shell
-  $ npm install
-  $ npm run start
-```
+## How to run:
+### Dependencies:
+You need to have the following tools installed in your local machine:
+- Docker
+- docker-compose
+
+### Install and run
+Pre-steps:
+1- You will need to have a `/data/db` directory
+2- Make sure Docker has can use that dir to mount volumes (Preferences > File Sharing in Docker for Mac)
+Steps:
+
+1.  `$ git clone git@github.com:adopteitor/adopteitor-api.git`
+2. `$ cd adopteitor-api`
+3. `$ npm install`
+4. `$ docker-compose up`
+
 
 ## Roles:
   - USER: Can only READ the resources.
