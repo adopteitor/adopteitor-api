@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ContractsSchema = new Schema({
+const ContractSchema = new Schema({
   _id: {
     type: Number,
     required: true
@@ -24,6 +24,6 @@ const ContractsSchema = new Schema({
     required: true
   }
 });
-const Model = mongoose.model('Contracts', ContractsSchema);
+const Model = mongoose.model('Contract', ContractSchema);
 
 module.exports = Model;
