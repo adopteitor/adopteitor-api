@@ -35,8 +35,10 @@ $ make run
 ```
 $ cp .env.dist .env
 $ npm install
-$ docker-compose up
+$ docker-compose up -d
 ```
+
+You'll find the API in http://localhost:3030
 
 ## Features
 
