@@ -26,22 +26,12 @@ You'll need to have Make installed.
 After cloning the repo, run the following from the root folder:
 
 ```
-$ make build # You will be prompted for your password
+$ make build
 $ make run
 ```
 
 #### The hard way: run it by hand
-##### Pre-steps for MongoDB:
-1- You will need to have a root `/data/db` directory, if you don't have it, create it:
 
-```
-$ sudo mkdir -p /data/db
-$ sudo chown -R `id -u` /data/db  ## this makes the dir writable for mongo
-```
-
-2- Make sure Docker can also use that dir to mount volumes. (Add it in Preferences > File Sharing in Docker for Mac)
-
-##### Install and run
 ```
 $ cp .env.dist .env
 $ npm install

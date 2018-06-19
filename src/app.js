@@ -13,7 +13,7 @@ app
   .configure(express.rest())
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .use('/animal', service({
+  .use('/animals', service({
     Model: animalModel,
     lean: true, // set to false if you want Mongoose documents returned
     paginate: {
