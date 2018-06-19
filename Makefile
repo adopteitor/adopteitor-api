@@ -7,5 +7,8 @@ build: ## Builds the image
 	npm install
 	docker-compose build
 
-run: ## Runs the project and all its containers
-	docker-compose up -d 
+run: ## Runs the project with all its containers in daemon mode
+	docker-compose up -d
+
+run-verb: ## Runs the project and takes over the current terminal
+	docker-compose up
