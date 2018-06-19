@@ -20,17 +20,18 @@ You need to have the following tools installed in your local machine:
 - docker-compose
 
 ### Install and run
-#### The easy way: make commands
+#### With make commands
 You'll need to have Make installed.
 
 After cloning the repo, run the following from the root folder:
 
 ```
+$ npm install
 $ make build
 $ make run
 ```
 
-#### The hard way: run it by hand
+#### By hand
 
 ```
 $ cp .env.dist .env

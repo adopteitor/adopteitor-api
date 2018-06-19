@@ -4,7 +4,6 @@ help: ## Prints this help.
 
 build: ## Builds the image
 	cp .env.dist .env
-	npm install
 	docker-compose build
 
 run: ## Runs the project with all its containers in daemon mode
