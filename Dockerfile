@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3030
 
-CMD ["bash", "start.sh"]
+CMD ["bash", "scripts/start.sh"]

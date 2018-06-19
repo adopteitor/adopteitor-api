@@ -22,10 +22,14 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /data/db:/data
+      - data-mongo:/data
     networks:
       - net
 
 networks:
   net:
     driver: bridge
+
+volumes:
+  data-mongo:
+    driver: local
