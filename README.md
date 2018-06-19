@@ -19,7 +19,7 @@ You need to have the following tools installed in your local machine:
 - docker-compose
 
 ### Install and run
-Pre-steps:
+#### Pre-steps:
 1- You will need to have a root `/data/db` directory, if you don't have it, create it:
 
 ```
@@ -30,33 +30,16 @@ $ sudo chown -R `id -u` /data/db
 2- Make sure Docker has can use that dir to mount volumes (Preferences > File Sharing in Docker for Mac)
 Steps:
 
-1. Clone the repo
-
+#### Install and run
 ```
 $ git clone git@github.com:adopteitor/adopteitor-api.git
-```
 
-2. Step into the repo
-
-```
 $ cd adopteitor-api
-```
 
-3. Copy the .env file
-
-```
 $ cp .env.dist .env
-```
 
-4. Install npm dependencies
-
-```
 $ npm install
-```
 
-5. Build and run the containers
-
-```
 $ docker-compose up
 ```
 
