@@ -28,6 +28,7 @@
   "dependencies": {
     "@feathersjs/express": "^1.2.3",
     "@feathersjs/feathers": "^3.1.6",
+    "feathers-hooks-common": "^4.12.1",
     "feathers-mongoose": "^6.1.2",
     "mongoose": "^5.1.5"
   },
