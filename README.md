@@ -38,6 +38,12 @@ $ cp .env.dist .env
 $ npm install
 $ docker-compose up -d
 ```
+#### Logs
+To view the output of the main application do:
+```
+$ docker logs -f adopteitor_api
+```
+You can view the output of the mongo container using *adopteitor_mongo* instead.
 
 You'll find the API in http://localhost:3030
 
