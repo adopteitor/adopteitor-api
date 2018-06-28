@@ -11,6 +11,7 @@ Backend for adopteitor using FeathersJS.
 ## Tech:
   - API: https://feathersjs.com/
   - Models: http://mongoosejs.com
+  - Documentation: https://swagger.io/docs/specification/about/
 
 
 ## Installation:
@@ -48,6 +49,12 @@ You can view the output of the mongo container using *adopteitor_mongo* instead.
 You'll find the API in http://localhost:3030
 
 ## Features
+
+### Documentation
+
+  We are using *Swagger* for documenting the API, and we are using *mongoose-to-swagger* to use our model schema to feed *Swagger*.
+  Documentation can be found at http://localhost:3030/docs/
+
 
 ### Roles:
   - USER: Can only READ the resources.
