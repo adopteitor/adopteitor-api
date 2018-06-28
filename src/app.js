@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const feathers = require('@feathersjs/feathers');
 const express = require('@feathersjs/express');
 const app = express(feathers());
@@ -7,14 +8,23 @@ const mongoose = require('mongoose');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 const bodyParser = require('body-parser');
+const swagger = require('feathers-swagger');
 const server = app
   .use(bodyParser.json())
   .hooks(appHooks)
   .configure(express.rest())
-  .configure(services)
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .use(express.errorHandler())
+  .configure(swagger({
+    docsPath: '/docs',
+    uiIndex: path.join(__dirname, 'docs.html'),
+    info: {
+      title: 'Adopteitor API',
+      description: 'Main adopteitor API. <br> https://github.com/adopteitor'
+    }
+  }))
+  .configure(services)
   .listen(3030);
 
 mongoose.Promise = global.Promise;
