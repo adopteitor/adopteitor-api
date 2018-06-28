@@ -1,7 +1,8 @@
 'use strict';
 
 const animal = require('./animal');
-
+const human = require('./human');
+const contract = require('./contract');
 
 const mongoose = require('mongoose');
 
@@ -14,4 +15,7 @@ module.exports = function() {
   // mongoose.connect(app.get('mongodb'), { useMongoClient: true });
 
   app.configure(animal);
+  app.configure(human);
+  app.configure(contract);
+
 };
