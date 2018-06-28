@@ -3,17 +3,24 @@
 const hooks = require('./hooks');
 const service = require('feathers-mongoose');
 const human = require('./human-model');
+const m2s = require('mongoose-to-swagger');
 
 module.exports = function(){
-  const app = this;
+  const app = this,
+    options = {
+      Model: human
+    },
+    humanService = service(options);
 
-  const options = {
-    Model: human
+  humanService.docs = {
+    description: 'A service to manage humans',
+    definitions: {
+      humans: m2s(human)
+    }
   };
 
   app
-    .use('/humans', service(options))
+    .use('/humans', humanService)
     .service('/humans')
     .hooks(hooks);
-
 };
