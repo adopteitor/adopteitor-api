@@ -28,8 +28,11 @@
   "dependencies": {
     "@feathersjs/express": "^1.2.3",
     "@feathersjs/feathers": "^3.1.6",
+    "feathers-hooks-common": "^4.14.0",
     "feathers-mongoose": "^6.1.2",
-    "mongoose": "^5.1.5"
+    "feathers-swagger": "^0.7.1",
+    "mongoose": "^5.1.5",
+    "mongoose-to-swagger": "0.0.4"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

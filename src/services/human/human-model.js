@@ -3,11 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const HumanSchema = new Schema({
-  _id: {
-    type: Number,
-    required: true
-  },
+const humanSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -36,8 +32,8 @@ const HumanSchema = new Schema({
     type: Date,
     required: true
   }
-});
+}, { collection: 'humans' });
 
-const Model = mongoose.model('Human', HumanSchema);
+const humanModel = mongoose.model('human', humanSchema);
 
-module.exports = Model;
+module.exports = humanModel;

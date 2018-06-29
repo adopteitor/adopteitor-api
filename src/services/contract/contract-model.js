@@ -2,11 +2,8 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ContractSchema = new Schema({
-  _id: {
-    type: Number,
-    required: true
-  },
+
+const contractSchema = new Schema({
   animalId: {
     type: Schema.ObjectId,
     required: true
@@ -23,7 +20,8 @@ const ContractSchema = new Schema({
     type: String,
     required: true
   }
-});
-const Model = mongoose.model('Contract', ContractSchema);
+}, { collection: 'contracts' });
 
-module.exports = Model;
+const contractModel = mongoose.model('contract', contractSchema);
+
+module.exports = contractModel;
