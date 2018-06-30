@@ -32,7 +32,7 @@ const humanSchema = new Schema({
     type: Date,
     required: true
   }
-}, { collection: 'humans' });
+}, { collection: 'humans', versionKey: false });
 
 const humanModel = mongoose.model('human', humanSchema);
 

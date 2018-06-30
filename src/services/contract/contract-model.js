@@ -20,7 +20,7 @@ const contractSchema = new Schema({
     type: String,
     required: true
   }
-}, { collection: 'contracts' });
+}, { collection: 'contracts', versionKey: false });
 
 const contractModel = mongoose.model('contract', contractSchema);
 

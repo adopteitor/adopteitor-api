@@ -21,6 +21,5 @@ module.exports = function(){
 
   app
     .use('/humans', humanService)
-    .service('/humans')
     .hooks(hooks);
 };

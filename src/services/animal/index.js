@@ -21,6 +21,5 @@ module.exports = function(){
 
   app
     .use('/animals', animalService)
-    .service('/animals')
     .hooks(hooks);
 };

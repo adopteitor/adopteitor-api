@@ -21,6 +21,5 @@ module.exports = function(){
 
   app
     .use('/contracts', contractService)
-    .service('/contracts')
     .hooks(hooks);
 };

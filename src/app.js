@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const feathers = require('@feathersjs/feathers');
 const express = require('@feathersjs/express');
 const app = express(feathers());
@@ -18,7 +17,7 @@ const server = app
   .use(express.errorHandler())
   .configure(swagger({
     docsPath: '/docs',
-    uiIndex: path.join(__dirname, 'docs.html'),
+    uiIndex: true,
     info: {
       title: 'Adopteitor API',
       description: 'Main adopteitor API. <br> https://github.com/adopteitor'

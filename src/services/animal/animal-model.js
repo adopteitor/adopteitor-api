@@ -36,7 +36,7 @@ const animalSchema = new Schema({
     type: String,
     required: true
   }
-}, { collection: 'animals' });
+}, { collection: 'animals', versionKey: false });
 
 const animalModel = mongoose.model('animal', animalSchema);
 
