@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 const animalSchema = new Schema(
   {
     stage: {
-      // SHouldn't this be autocalculated based on the dateOfBirth?
       type: String,
       required: true
     },
