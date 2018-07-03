@@ -31,6 +31,11 @@ const humanSchema = new Schema({
   createdAt: {
     type: Date,
     required: true
+  },
+  role: {
+    type: String,
+    required: true,
+    enum: ['User', 'Admin']
   }
 }, { collection: 'humans', versionKey: false });
 
