@@ -8,7 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
     "dev": "DEBUG=* nodemon src/app.js",
-    "serve": "http-server public/",
     "lint": "eslint *.js"
   },
   "config": {
