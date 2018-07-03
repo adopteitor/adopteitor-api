@@ -1,0 +1,18 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mongodb": "mongodb://adopteitor_mongo:27017/generator",
+  "swagger": {
+    "docsPath": "/docs",
+    "uiIndex": true,
+    "info": {
+      "title": "Adopteitor API",
+      "description": "Main adopteitor API. <br> https: //github.com/adopteitor"
+    }
+  }
+}

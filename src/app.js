@@ -1,47 +1,40 @@
 'use strict';
 
 const feathers = require('@feathersjs/feathers');
+const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
-const app = express(feathers());
-const mongoose = require('mongoose');
+const swagger = require('feathers-swagger');
+
+const logger = require('./logger');
 const services = require('./services');
 const appHooks = require('./app.hooks');
-const bodyParser = require('body-parser');
-const swagger = require('feathers-swagger');
-const server = app
-  .use(bodyParser.json())
-  .hooks(appHooks)
-  .configure(express.rest())
-  .use(express.json())
-  .use(express.urlencoded({ extended: true }))
-  .use(express.errorHandler())
-  .configure(swagger({
-    docsPath: '/docs',
-    uiIndex: true,
-    info: {
-      title: 'Adopteitor API',
-      description: 'Main adopteitor API. <br> https://github.com/adopteitor'
-    }
-  }))
-  .configure(services)
-  .listen(3030);
+const mongoose = require('./mongoose');
 
-mongoose.Promise = global.Promise;
+const app = express(feathers());
 
+// Load app configuration from /config dir
+app.configure(configuration());
 
-mongoose
-  .connect('mongodb://adopteitor_mongo:27017', {
-    dbName: 'adopteitor'
-  })
-  .then(() => {
-    console.log('[mongoose.connected]');
-  })
-  .catch((err) => {
-    console.log('[mongoose.connection failed]', err);
-  });
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Host the public folder
+app.use('/', express.static(app.get('public')));
 
-server.on('listening', () => {
-  process.stdout.write('\u001b[2J\u001b[0;0H'); // This is for clearing the console.
-  console.log('Adopteitor Server started at http://localhost:3030');
-});
+// Set up Plugins and providers
+app.configure(express.rest());
+app.configure(mongoose);
+
+// Set up swagger documentation for services
+app.configure(swagger(app.get('swagger')));
+
+// Set up our services (see `services/index.js`)
+app.configure(services);
+
+// Configure a middleware for 404s and the error handler
+app.use(express.notFound());
+app.use(express.errorHandler({ logger }));
+
+app.hooks(appHooks);
+
+module.exports = app;

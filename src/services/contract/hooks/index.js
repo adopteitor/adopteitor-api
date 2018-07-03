@@ -8,10 +8,10 @@ exports.before = {
   find: [],
   get: [],
   create: [
-    function(hook){
+    function(hook) {
       return Promise.all([
-        animalsModel.findOne({_id: context.data.animalId}),
-        humansModel.findOne({_id: context.data.humanId})
+        animalsModel.findOne({ _id: context.data.animalId }),
+        humansModel.findOne({ _id: context.data.humanId })
       ])
         .then(([animal, human]) => {
           context.data.animal = animal;
@@ -19,7 +19,7 @@ exports.before = {
           // Do any check here.
           return hook;
         })
-        .catch((err) => {
+        .catch(err => {
           console.log('[ERR]');
           console.log(err);
           console.log('[ERR]');
