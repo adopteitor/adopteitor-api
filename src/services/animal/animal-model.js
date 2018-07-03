@@ -7,10 +7,10 @@ const animalSchema = new Schema(
   {
     stage: {
       type: String,
-      required: true
+      required: true,
+      enum: ['Puppy', 'Adult', 'Oldie']
     },
     name: {
-      // Should be displayName?
       type: String,
       required: true
     },
@@ -19,16 +19,15 @@ const animalSchema = new Schema(
       required: true
     },
     description: {
-      // A description of the animal.
       type: String,
       required: true
     },
     sex: {
       type: String,
-      required: true
+      required: true,
+      enum: ['male', 'female', 'other']
     },
     location: {
-      // A string describing where in the world the animal is located
       type: String,
       required: false
     },
@@ -36,11 +35,23 @@ const animalSchema = new Schema(
       type: Date,
       required: true
     },
-    state: {
-      // Adopted, in adoption, other?
+    status: {
       type: String,
+      required: true,
+      enum: ['adopted', 'other']
+    },
+    species: {
+      type: Schema.Types.ObjectId,
       required: true
-    }
+    },
+    race: {
+      type: Schema.Types.ObjectId,
+      required: false
+    },
+    photos: [{
+      type: String,
+      required: false
+    }]
   },
   { collection: 'animals', versionKey: false }
 );
