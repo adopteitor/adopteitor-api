@@ -15,7 +15,11 @@ module.exports = function(){
   contractService.docs = {
     description: 'A service to manage contracts',
     definitions: {
-      contracts: m2s(contract)
+      contracts: m2s(contract),
+      'contracts list': {
+        type: 'array',
+        items: { $ref: '#definitions/contracts' }
+      }
     }
   };
 

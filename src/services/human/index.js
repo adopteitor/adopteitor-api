@@ -15,7 +15,11 @@ module.exports = function(){
   humanService.docs = {
     description: 'A service to manage humans',
     definitions: {
-      humans: m2s(human)
+      humans: m2s(human),
+      'humans list': {
+        type: 'array',
+        items: { $ref: '#definitions/humans' }
+      }
     }
   };
 
