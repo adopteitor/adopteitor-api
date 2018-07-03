@@ -10,8 +10,7 @@ const services = requireDirectory(module, {
 });
 
 module.exports = function() {
-  const app = this;
-
+  const app = this; // eslint-disable-line no-unused-vars
   for (let service in services) {
     if (services.hasOwnProperty(service)) {
       app.configure(services[service].index);

@@ -6,8 +6,9 @@
   "repository": "https://github.com/adopteitor/adopteitor-api",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "dev": "DEBUG=* nodemon src/index.js",
     "serve": "http-server public/",
     "lint": "eslint *.js"
   },
