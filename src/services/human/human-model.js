@@ -35,7 +35,7 @@ const humanSchema = new Schema({
   role: {
     type: String,
     required: true,
-    enum: ['User', 'Admin']
+    enum: ['user', 'admin']
   }
 }, { collection: 'humans', versionKey: false });
 
