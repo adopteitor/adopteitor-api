@@ -1,18 +1,19 @@
 'use strict';
 
-const animal = require('./animal');
-const human = require('./human');
-const contract = require('./contract');
+const requireDirectory = require('require-directory');
+const whitelist = /index.js$/;
+const blacklist = /hooks/;
 
-const mongoose = require('mongoose');
+const services = requireDirectory(module, {
+  include: whitelist,
+  exclude: blacklist
+});
 
 module.exports = function() {
   const app = this; // eslint-disable-line no-unused-vars
-  // mongoose.Promise = global.Promise;
-  // mongoose.connect(app.get('mongodb'), { useMongoClient: true });
-
-  app.configure(animal);
-  app.configure(human);
-  app.configure(contract);
-
+  for (let service in services) {
+    if (services.hasOwnProperty(service)) {
+      app.configure(services[service].index);
+    }
+  }
 };

@@ -5,7 +5,7 @@ const service = require('feathers-mongoose');
 const animal = require('./animal-model');
 const m2s = require('mongoose-to-swagger');
 
-module.exports = function(){
+module.exports = function() {
   const app = this,
     options = {
       Model: animal
@@ -19,7 +19,5 @@ module.exports = function(){
     }
   };
 
-  app
-    .use('/animals', animalService)
-    .hooks(hooks);
+  app.use('/animals', animalService).hooks(hooks);
 };

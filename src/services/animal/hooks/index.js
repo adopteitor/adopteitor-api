@@ -8,15 +8,9 @@ exports.before = {
   find: [],
   get: [],
   create: [],
-  update: [
-    commonHooks.disallow()
-  ],
-  patch: [
-    commonHooks.disallow()
-  ],
-  remove: [
-    commonHooks.disallow()
-  ]
+  update: [commonHooks.disallow()],
+  patch: [commonHooks.disallow()],
+  remove: [commonHooks.disallow()]
 };
 
 exports.after = {
