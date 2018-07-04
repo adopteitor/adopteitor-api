@@ -7,9 +7,11 @@
   "scripts": {
     "start": "node src/",
     "dev": "DEBUG=* nodemon src/",
-    "test": "npm run lint && npm run mocha",
-    "lint": "eslint src/. test/. --config .eslintrc.json",
-    "mocha": "mocha test/ --recursive --exit"
+    "test": "npm run lint && npm run coverage",
+    "coverage": "npm run clean && NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- test/ --recursive --exit",
+    "clean": "shx rm -rf test/data/",
+    "lint": "eslint src/. test/. --config .eslintrc.json --fix",
+    "mocha": "npm run clean && mocha test/ --recursive --exit"
   },
   "config": {
     "ghooks": {
@@ -61,10 +63,12 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "ghooks": "^2.0.4",
+    "istanbul": "^1.1.0-alpha.1",
     "lint-staged": "^7.2.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.17.5",
     "request": "^2.87.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "shx": "^0.3.1"
   }
 }
