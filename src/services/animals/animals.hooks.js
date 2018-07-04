@@ -1,20 +1,19 @@
 
-// Application hooks that run for every service
-const log = require('./hooks/log');
+const commonHooks = require('feathers-hooks-common');
 
 module.exports = {
   before: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],
-    update: [],
-    patch: [],
-    remove: []
+    update: [commonHooks.disallow()],
+    patch: [commonHooks.disallow()],
+    remove: [commonHooks.disallow()]
   },
 
   after: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -24,7 +23,7 @@ module.exports = {
   },
 
   error: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],

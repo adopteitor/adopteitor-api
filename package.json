@@ -2,15 +2,14 @@
   "name": "adopteitor-feathers",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src",
   "repository": "https://github.com/adopteitor/adopteitor-api",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "dev": "DEBUG=* nodemon src/index.js",
-    "serve": "http-server public/",
-    "lint": "eslint *.js"
+    "start": "node src/",
+    "dev": "DEBUG=* nodemon src/",
+    "test": "npm run lint && npm run mocha",
+    "lint": "eslint src/. test/. --config .eslintrc.json",
+    "mocha": "mocha test/ --recursive --exit"
   },
   "config": {
     "ghooks": {
@@ -23,22 +22,38 @@
       "git add"
     ]
   },
-  "keywords": [],
+  "keywords": [
+    "feathers"
+  ],
   "author": "adopteitor",
-  "license": "ISC",
+  "license": "MIT",
+  "directories": {
+    "lib": "src",
+    "test": "test/"
+  },
+  "engines": {
+    "node": "^9.0.0",
+    "npm": ">= 3.0.0"
+  },
   "dependencies": {
     "@feathersjs/configuration": "^1.0.2",
+    "@feathersjs/errors": "^3.3.0",
     "@feathersjs/express": "^1.2.3",
-    "@feathersjs/feathers": "^3.1.6",
+    "@feathersjs/feathers": "^3.1.7",
     "feathers-hooks-common": "^4.14.0",
     "feathers-mongoose": "^6.1.2",
     "feathers-swagger": "^0.7.1",
-    "mongoose": "^5.1.5",
+    "mongoose": "^5.2.0",
     "mongoose-to-swagger": "0.0.4",
     "require-directory": "^2.1.1",
-    "winston": "^3.0.0"
+    "winston": "^3.0.0",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
+    "helmet": "^3.12.1",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.5",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
@@ -47,6 +62,9 @@
     "eslint-plugin-standard": "^3.1.0",
     "ghooks": "^2.0.4",
     "lint-staged": "^7.2.0",
-    "nodemon": "^1.17.5"
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
   }
 }
