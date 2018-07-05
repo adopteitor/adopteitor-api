@@ -1,18 +1,23 @@
-
+const local = require('@feathersjs/authentication-local');
+const { authenticate } = require('@feathersjs/authentication').hooks;
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [
+      local.hooks.hashPassword()
+    ],
     update: [],
     patch: [],
     remove: []
   },
 
   after: {
-    all: [],
+    all: [
+      local.hooks.protect('password')
+    ],
     find: [],
     get: [],
     create: [],

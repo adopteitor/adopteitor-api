@@ -28,5 +28,6 @@ module.exports = function (app) {
     }
   };
 
-  app.use('/humans', service).hooks(hooks);
+  app.use('/humans', service);
+  app.service('humans').hooks(hooks);
 };
