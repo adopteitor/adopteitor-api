@@ -14,5 +14,29 @@
       "title": "Adopteitor API",
       "description": "Main adopteitor API. <br> https: //github.com/adopteitor"
     }
+  },
+  "authentication": {
+    "secret": "731404903afb7b48a5919534de585c09048f08cf01918320f9ea43a650fd2bec0fc4fca91ca7520d2b55c2733ce55bdc9027703005428daa0fedc1f6b796d7882bac4d76578bfe765266a831d85554eeb678d06b60cde70af353b2f04b75bea068cc92a63cd3eb9b423023afea018a4cb9f16b06e1a8f077d93c1abf719da73c7edaeb824960ce85cf108d6472fdc1cc81d8df6a352c0b5cbe81f0d1749b47c5c435e6f208c77d6e658081e5dff0ded94450ccd17109afe0c2f0eaa49a8a82d50ee50a8483b14a68df54b99e5e1378bffdfa7b9b200c7e252c37508dcc0b45b1e0f19a8c2507163e50268c3b95be8afb6fb877598d4e0398f2296a0c8a6abe47",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "humans",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "human",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
   }
 }

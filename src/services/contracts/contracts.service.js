@@ -28,5 +28,7 @@ module.exports = function (app) {
     }
   };
 
-  app.use('/contracts', service).hooks(hooks);
+  app.use('/contracts', service);
+  app.service('contracts').hooks(hooks);
+
 };

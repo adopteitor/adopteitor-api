@@ -24,9 +24,18 @@ module.exports = function (app) {
       type: String,
       required: true
     },
+    password: {
+      type: String,
+      required: true
+    },
     city: {
       type: String,
       required: true
+    },
+    role: {
+      type: String,
+      required: true,
+      enum: ['user', 'admin']
     },
     createdAt: {
       type: Date,

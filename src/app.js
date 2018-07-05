@@ -17,6 +17,8 @@ const compress = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 
+const authentication = require('./authentication');
+
 const app = express(feathers());
 
 // Load app configuration from /config dir
@@ -40,6 +42,8 @@ app.configure(middleware);
 
 // Set up swagger documentation for services
 app.configure(swagger(app.get('swagger')));
+
+app.configure(authentication);
 
 // Set up our services (see `services/index.js`)
 app.configure(services);
