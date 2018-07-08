@@ -1,10 +1,9 @@
-'use strict';
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const animalSchema = new Schema(
-  {
+module.exports = function (app) {
+  const mongooseClient = app.get('mongooseClient');
+  const { Schema } = mongooseClient;
+  const animals = new Schema({
     stage: {
       type: String,
       required: true
@@ -41,10 +40,11 @@ const animalSchema = new Schema(
       type: String,
       required: true
     }
-  },
-  { collection: 'animals', versionKey: false }
-);
+  }, {
+    collection: 'animals',
+    versionKey: false,
+    timestamps: true
+  });
 
-const animalModel = mongoose.model('animal', animalSchema);
-
-module.exports = animalModel;
+  return mongooseClient.model('animals', animals);
+};

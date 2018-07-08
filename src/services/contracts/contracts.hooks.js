@@ -1,20 +1,21 @@
 
-// Application hooks that run for every service
-const log = require('./hooks/log');
+
+const validateAnimal = require('../../hooks/validate-animal');
+const validateHuman = require('../../hooks/validate-human');
 
 module.exports = {
   before: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
-    create: [],
+    create: [validateAnimal(), validateHuman()],
     update: [],
     patch: [],
     remove: []
   },
 
   after: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -24,7 +25,7 @@ module.exports = {
   },
 
   error: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],
