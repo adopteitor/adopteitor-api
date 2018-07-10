@@ -35,7 +35,10 @@ module.exports = function (app) {
     role: {
       type: String,
       required: true,
-      enum: ['user', 'admin']
+      enum: [
+        'user',
+        'admin'
+      ]
     },
     createdAt: {
       type: Date,

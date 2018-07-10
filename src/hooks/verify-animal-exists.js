@@ -4,7 +4,8 @@
 module.exports = function(options = {}) {
   return async context => {
     const animalId = context.data.animalId;
-    if(animalId) {
+
+    if (animalId) {
       const animal = await context.app.service('animals').get(animalId);
       context.data.animal = animal;
     }
