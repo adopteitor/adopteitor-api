@@ -5,6 +5,7 @@
     "es6": true
   },
   "rules": {
+    "array-bracket-newline": [1, {"multiline": true, "minItems": 1}],
     "camelcase": 1,
     "complexity": [2, 5],
     "comma-spacing": 1,
@@ -14,7 +15,7 @@
     "indent": [1, 2],
     "max-depth": [1, 2],
     "max-len": [2, 100],
-    "max-nested-callbacks": [1, 1],
+    "max-nested-callbacks": [1, 5],
     "max-params": [1, 4],
     "max-statements": [1, 15],
     "no-use-before-define": [2, "nofunc"],

@@ -1,5 +1,3 @@
-
-
 const path = require('path');
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
@@ -10,7 +8,6 @@ const logger = require('./logger');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
-const channels = require('./channels');
 const mongoose = require('./mongoose');
 const favicon = require('serve-favicon');
 const compress = require('compression');
@@ -47,8 +44,6 @@ app.configure(authentication);
 
 // Set up our services (see `services/index.js`)
 app.configure(services);
-
-app.configure(channels);
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());

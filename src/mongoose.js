@@ -1,15 +1,18 @@
 
 
 const mongoose = require('mongoose');
+const logger = require('./logger');
 
 module.exports = function(app) {
   mongoose
     .connect(app.get('mongodb'))
     .then(() => {
-      console.log('[mongoose.connected]');
+      logger.info('[mongoose.connected]');
     })
     .catch(err => {
-      console.log('[mongoose.connection failed]', err);
+      if (process.env.NODE_ENV !== 'test') {
+        logger.error('[mongoose.connection failed]', err);
+      }
     });
 
   mongoose.Promise = global.Promise;

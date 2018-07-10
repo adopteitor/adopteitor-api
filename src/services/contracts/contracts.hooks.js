@@ -1,14 +1,17 @@
 
 
-const validateAnimal = require('../../hooks/validate-animal');
-const validateHuman = require('../../hooks/validate-human');
+const verifyAnimalExists = require('../../hooks/verify-animal-exists');
+const verifyHumanExists = require('../../hooks/verify-human-exists');
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [validateAnimal(), validateHuman()],
+    create: [
+      verifyAnimalExists(),
+      verifyHumanExists()
+    ],
     update: [],
     patch: [],
     remove: []
