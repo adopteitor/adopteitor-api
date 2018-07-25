@@ -49,7 +49,7 @@ module.exports = function (app) {
       type: Schema.Types.ObjectId,
       required: true
     },
-    race: {
+    breed: {
       type: Schema.Types.ObjectId,
       required: false
     },
